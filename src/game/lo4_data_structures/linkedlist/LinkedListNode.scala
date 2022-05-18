@@ -1,9 +1,12 @@
 package game.lo4_data_structures.linkedlist
 
+import game.maps.GridLocation
+
 import scala.annotation.tailrec
 
 // Simple Linked List implementation (note: Cannot represent empty list)
 class LinkedListNode[A](var value: A, var next: LinkedListNode[A]) {
+  //def apply(i: Int): LinkedListNode[GridLocation] = ???
 
 
   /**
