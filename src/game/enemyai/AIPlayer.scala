@@ -29,17 +29,14 @@ class AIPlayer(val id: String) {
           var between: List[Int] = List()
           for (all <- state.levelAsGraph().adjacencyList(all)) {
             if (q.contains(all)) {
-            //println("No")
             }
             else {
-              //println("Yes")
               q.enqueue(all)
               between = between :+ all
               map = map + (i.toDouble-> all)
               if(all == end_id){
                 end = i
               }
-              //println(map.slice(i-1,i))
             }
           }
           keep = keep :+ between
@@ -143,7 +140,6 @@ class AIPlayer(val id: String) {
   def closestPlayerAvoidWalls(gameState: AIGameState): PlayerLocation = {
    var list = toList(gameState.playerLocations.size(),gameState.playerLocations)
     var completeList: List[PlayerLocation] = List()
-    //println("ID: " + this.id)
     val player = locatePlayer(this.id,gameState.playerLocations)
     for(all <- list){
       if(all.playerId != player.playerId){
@@ -193,10 +189,8 @@ class AIPlayer(val id: String) {
       finished_list = finished_list :+ new GridLocation(gameState.levelAsGraph().nodes(all).x,gameState.levelAsGraph().nodes(all).y)
     }
     val reversed_list = finished_list.reverse
-    //println("reversed: " + reversed_list)
     var linked_list = new LinkedListNode[GridLocation](gameState.levelAsGraph().nodes(end_id), null)
     linked_list = new LinkedListNode[GridLocation](finished_list(0),linked_list)
-    //linked_list = new LinkedListNode[GridLocation](gameState.levelAsGraph().nodes(38),linked_list)
     for(all <- finished_list.indices){
       if(all != 0){
         linked_list = new LinkedListNode[GridLocation](finished_list(all),linked_list)
@@ -240,14 +234,10 @@ class AIPlayer(val id: String) {
           var between: List[Int] = List()
           for (all3 <- state.levelAsGraph().adjacencyList(all2)) {
             if (q.contains(all3)) {
-              //println("No")
             }
             else {
-              //println("Yes")
               q.enqueue(all3)
               between = between :+ all3
-              //val all2 = all2
-              //val all3 = all3
               map = map :+ List(all2,all3)
               if(all3 == end_id){
                 end = i
