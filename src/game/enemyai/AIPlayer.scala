@@ -7,7 +7,7 @@ import game.maps.GridLocation
 import game.{AIAction, MovePlayer}
 import scala.collection.mutable._
 import java.util
-
+//testing
 class AIPlayer(val id: String) {
   def distanceAvoidWalls(state: AIGameState,location1: GridLocation,location2: GridLocation): Int ={
     val start_id: Int = (location1.y * state.levelWidth) + location1.x
